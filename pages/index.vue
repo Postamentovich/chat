@@ -1,9 +1,26 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6> </v-flex>
+    <v-flex xs12 sm8 md6>
+      <v-btn @click="message">
+        NEW MESSAGE
+      </v-btn>
+    </v-flex>
   </v-layout>
 </template>
 
 <script>
-export default {}
+export default {
+  sockets: {
+    connect: () => {
+      console.log('socket connected')
+    }
+  },
+  methods: {
+    message() {
+      this.$socket.emit('createMessage', {
+        text: 'FROME CLIENT'
+      })
+    }
+  }
+}
 </script>
