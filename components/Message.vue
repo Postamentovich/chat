@@ -5,7 +5,7 @@
       <hr />
     </div>
     <div v-else class="wrap">
-      <div class="mes" :class="{ owner }">
+      <div :class="{ owner }" class="mes">
         <small
           ><strong>{{ name }}</strong></small
         >
@@ -18,8 +18,14 @@
 <script>
 export default {
   props: {
-    name: String,
-    text: String,
+    name: {
+      type: String,
+      default: ''
+    },
+    text: {
+      type: String,
+      default: ''
+    },
     owner: {
       type: Boolean,
       default: false

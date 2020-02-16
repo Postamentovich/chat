@@ -1,6 +1,6 @@
 <template>
   <div class="c-wrap">
-    <div class="c-chat">
+    <div ref="block" class="c-chat">
       <ul>
         <Message
           v-for="m in messages"
@@ -20,7 +20,6 @@
 <script>
 import Message from '@/components/Message'
 import ChatForm from '@/components/ChatForm'
-
 import { mapState } from 'vuex'
 
 export default {
@@ -31,7 +30,14 @@ export default {
     }
   },
   components: { Message, ChatForm },
-  computed: mapState(['user', 'messages'])
+  computed: mapState(['user', 'messages']),
+  watch: {
+    messages() {
+      setTimeout(() => {
+        this.$refs.block.scrollTop = this.$refs.block.scrollHeight
+      })
+    }
+  }
 }
 </script>
 

@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+/* eslint-disable standard/no-callback-literal */
 const app = require('express')()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
