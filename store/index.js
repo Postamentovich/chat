@@ -16,8 +16,8 @@ export const mutations = {
   }
 }
 
-export const actions = {
-  SOCKET_newMessage(ctx, data) {
-    console.log('message', data)
-  }
-}
+// export const actions = {
+//   SOCKET_newMessage(ctx, data) {
+//     console.log('message', data)
+//   }
+// }

@@ -2,9 +2,10 @@
   <v-col cols="12">
     <v-text-field
       @keydown.enter="send"
+      v-model="text"
       label="Enter message"
       outlined
-    ></v-text-field>
+    />
   </v-col>
 </template>
 

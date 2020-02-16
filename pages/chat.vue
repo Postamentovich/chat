@@ -7,7 +7,7 @@
           :key="m.text"
           :name="m.name"
           :text="m.text"
-          owner
+          :owner="m.id === user.id"
         />
       </ul>
     </div>
