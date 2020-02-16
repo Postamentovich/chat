@@ -2,7 +2,7 @@
   <!-- App.vue -->
 
   <v-app app>
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" mobile-break-point="650px" app>
       <v-list subheader>
         <v-subheader>Users list</v-subheader>
 
@@ -32,7 +32,7 @@
     <v-content>
       <!-- Provides the application the proper gutter -->
       <!-- If using vue-router -->
-      <div>
+      <div style="height: 100%">
         <nuxt />
       </div>
     </v-content>
