@@ -6,13 +6,13 @@
       <v-list subheader>
         <v-subheader>Users list</v-subheader>
 
-        <v-list-item v-for="user in users" :key="user.id" @click.prevent>
+        <v-list-item v-for="u in users" :key="u.id" @click.prevent>
           <v-list-item-content>
-            <v-list-item-title v-text="user.name"></v-list-item-title>
+            <v-list-item-title v-text="u.name"></v-list-item-title>
           </v-list-item-content>
 
           <v-list-item-icon>
-            <v-icon :color="user.id === 2 ? 'primary' : 'grey'"
+            <v-icon :color="u.id === user.id ? 'primary' : 'grey'"
               >mdi-chat</v-icon
             >
           </v-list-item-icon>
@@ -44,18 +44,16 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
   data: () => ({
-    drawer: true,
-    users: [
-      { id: 1, name: 'User 1' },
-      { id: 2, name: 'User 2' }
-    ]
+    drawer: true
   }),
-  computed: mapState(['user']),
+  computed: mapState(['user', 'users']),
   methods: {
     ...mapMutations(['clearData']),
     exit() {
-      this.$router.push('/?message=leftChat')
-      this.clearData()
+      this.$socket.emit('userLeft', this.user.id, () => {
+        this.$router.push('/?message=leftChat')
+        this.clearData()
+      })
     }
   }
 }
